@@ -41,7 +41,24 @@ btnIgual.addEventListener("click", () => {
 
 // Botões dos números
 
+// for (let i =0; i < btnBotoes.length; i++){
+//     btnBotoes[i].addEventListener("click", () => {
+//         adicionaNumero(calculadora, btn.innerText);
+//       });
+// }
+
+for(let btn of btnBotoes){
+    btn.addEventListener("click", () => {
+        adicionaNumero(calculadora, btn.innerText);
+     });
+}
+
 // Botões dos operadores
+for(let btn of btnOperacoes){
+    btn.addEventListener("click", () => {
+       escolheOperador(calculadora, btn.innerText);
+    });
+}
 
 /****************************************************************
  * Regras da aplicação
@@ -52,7 +69,10 @@ btnIgual.addEventListener("click", () => {
  *  O elemento buffer é atulizado com o atributo operandoAnterior
  *  O elemento display é atualizado com o atributo operandoAtual
  */
-function atualizaDisplay(calculadora) {}
+function atualizaDisplay(calculadora) {
+    calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior
+    calculadora.displayTextoElemento.innerText = calculadora.operandoAtual
+}
 
 /* Limpa os atributos do objeto calculadora e atualiza o display.
  * Para atualizar o dispay, chame a função responsável por isso.
@@ -64,7 +84,10 @@ function limpaVariaveis(calculadora) {}
  * - Adiciona um dígito no atributo operandoAtual e atualiza o display
  * O dígito "." deve receber um tratamento especial
  */
-function adicionaNumero(calculadora, numero) {}
+function adicionaNumero(calculadora, numero) {
+    calculadora.operandoAtual = calculadora.operandoAtual + numero
+    atualizaDisplay(calculadora)
+}
 
 /* Função chamada quando um botão de operador é pressionado
  * Essa função tem comportamentos diferentes dependendo do estado da calculadora.
@@ -74,7 +97,9 @@ function adicionaNumero(calculadora, numero) {}
  * - armazenar o operador recebido por parâmetro no atributo operador do objeto calculadora.
  * - copiar operandoAtual para o operandoAnterior, deixando a calculadora preparada para receber o próximo número
  */
-function escolheOperador(calculadora, operador) {}
+function escolheOperador(calculadora, operador) {
+    
+}
 
 /* A função recebe o objeto calculadora e executa o calculo
  * - Verificar a operação a ser executada
