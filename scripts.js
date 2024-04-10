@@ -78,7 +78,10 @@ function atualizaDisplay(calculadora) {
  * Para atualizar o dispay, chame a função responsável por isso.
  */
 function limpaVariaveis(calculadora) {
-
+  calculadora.operandoAnterior = ""
+  calculadora.operandoAtual = ""
+  calculadora.operador = ""
+  atualizaDisplay(calculadora)
 }
 
 /* Função chamada quando um botão de número é pressionado
@@ -113,10 +116,12 @@ function escolheOperador(calculadora, operador) {
  * - Atualizar o display
  */
 function executaCalculo(calculadora) {
-  
+
 }
 
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
-function apagaDigito(calculadora) {}
+function apagaDigito(calculadora) {
+  
+}
