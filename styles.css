@@ -11,7 +11,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #233329, #41b883);
+  background: linear-gradient(to right, #ca91c5, #b939af);
 }
 
 .grid-container {
@@ -37,7 +37,7 @@ body {
 }
 
 .grid-container > .operador {
-  background: #41b88375;
+  background: #e289db;
 }
 
 .span-2 {
