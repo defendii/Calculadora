@@ -116,12 +116,13 @@ function escolheOperador(calculadora, operador) {
  * - Atualizar o display
  */
 function executaCalculo(calculadora) {
-
+  
 }
 
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
 function apagaDigito(calculadora) {
-  
+  calculadora.operandoAtual = calculadora.operandoAtual.slice(0,-1)
+  atualizaDisplay(calculadora)
 }
