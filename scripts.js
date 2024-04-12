@@ -70,7 +70,7 @@ for(let btn of btnOperacoes){
  *  O elemento display é atualizado com o atributo operandoAtual
  */
 function atualizaDisplay(calculadora) {
-    calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior
+    calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior + calculadora.operador
     calculadora.displayTextoElemento.innerText = calculadora.operandoAtual
 }
 
@@ -90,8 +90,9 @@ function limpaVariaveis(calculadora) {
  * O dígito "." deve receber um tratamento especial
  */
 function adicionaNumero(calculadora, numero) {
-    calculadora.operandoAtual = calculadora.operandoAtual + numero
-    atualizaDisplay(calculadora)
+  if (numero === "." && calculadora.operandoAtual.includes(".")) return;
+  calculadora.operandoAtual = calculadora.operandoAtual + numero
+  atualizaDisplay(calculadora)
 }
 
 /* Função chamada quando um botão de operador é pressionado
@@ -116,7 +117,27 @@ function escolheOperador(calculadora, operador) {
  * - Atualizar o display
  */
 function executaCalculo(calculadora) {
-  
+  var operador = calculadora.operador;
+  var operandoAnterior = parseFloat(calculadora.operandoAnterior);
+  var operandoAtual = parseFloat(calculadora.operandoAtual);
+  var resultado;
+
+  if (operador == "+"){
+    resultado = operandoAnterior + operandoAtual
+  }
+  else if (operador == "-"){
+    resultado = operandoAnterior - operandoAtual
+  }
+  else if (operador == "*"){
+    resultado = operandoAnterior * operandoAtual
+  }
+  else if (operador == "÷"){
+    resultado = operandoAnterior / operandoAtual
+  }
+  calculadora.operandoAtual = resultado.toString()
+  calculadora.operandoAnterior = ""
+  calculadora.operador = ""
+  atualizaDisplay(calculadora)
 }
 
 /* Função chamada quando o botão delete for pressionado
